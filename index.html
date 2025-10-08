@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Palestra Fitness | Gimnasio en Santiago del Estero. El limite esta en tu mente.">
+        <meta name="keywords" content="gimnasio, gym, Santiago del Estero, sde, palestra, fitness, ejercicio, deporte, salud, cross, crossfit">
+        <meta name="author" content="Palestra Fitness">
+        <meta property="og:title" content="Palestra Fitness | El limite esta en tu mente">
+        <meta property="og:description" content="Veni a entrenar en el mejor gimnasio de Santiago del Estero.">
+        <!-- <meta property="og:image" content="https://marianokuran.github.io/laverapizza/assets/images/pepperonni.png"> -->
+        <meta property="og:type" content="website">
+        <!-- <meta property="og:url" content="https://marianokuran.github.io/laverapizza/"> -->
+        <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='black'/><path d='M20 52 L20 12 Q44 12 44 26 Q44 38 28 38 L24 48 L20 52 Z M26 20 L26 30 Q34 30 34 26 Q34 20 26 20 Z' fill='limegreen'/></svg>">
+
+        <!-- Tailwind CSS CDN -->
+        <script src="assets/js/tailwind_3_4_17.js"></script>
+        <script src="assets/js/font_awesome_6_7_2.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <title>Palestra</title>
+
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            .font-roboto {
+                font-family: 'Roboto', sans-serif;
+            }
+            .font-bebas {
+                font-family: 'Bebas Neue';
+            }
+            body::before{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url('assets/images/palestra.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                filter: blur(12px);
+                z-index: -2;
+            }
+            body::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.4);
+                z-index: -1;
+            }
+        </style>
+    </head>
+    <body class="flex flex-col items-center bg-no-repeat bg-cover">
+        <header id="header" class="fixed z-10 flex justify-center w-full py-10 lg:py-15 duration-300">
+            <div class="flex justify-between items-end lg:justify-start w-[80%] text-gray-100 ">
+                <!-- brand -->
+                <a href="#home">
+                    <div class="flex items-end">
+                        <img src="assets/images/palestra-nobg.png" width="150" alt="Logo palestra fitness">
+                    </div>
+                </a>
+                <div class="col-start-2 col-end-3">
+                    <!-- nav bar desktop -->
+                    <nav class="hidden lg:flex lg:pb-3 lg:ms-20 font-semibold uppercase">
+                        <ul class="w-full flex justify-between gap-10">
+                            <li><a href="#services" class="py-2 hover:text-lime-300" data-menu-link>Servicios</a></li>
+                            <li><a href="#plans" class="py-2 hover:text-lime-300" data-menu-link>Membresias</a></li>
+                        </ul>
+                    </nav>
+
+                    <!-- Toggle menu mobile -->
+                    <button id="menuToggle" aria-controls="mobileMenu" aria-expanded="false" class="lg:hidden z-50 inline-flex items-center justify-center rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" aria-label="Abrir menú">
+                        <i id="hambIcon" class="fa-solid fa-bars text-3xl"></i>
+                        <i id="closeIcon" class="w-6 h-6 hidden" class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Fullscreen menu -->
+            <nav id="mobileMenu" class="fixed inset-0 z-40 transform translate-y-full lg:hidden" aria-hidden="true" role="dialog" aria-modal="true">
+                <!-- backdrop -->
+                <div id="backdrop" class="absolute inset-0 bg-black opacity-0 transition-opacity duration-300"></div>
+
+                <!-- panel -->
+                <div class="absolute inset-0 flex items-start justify-center text-gray-200">
+                    <div class="w-full h-full p-6 pt-20 overflow-auto transform transition-transform duration-300" id="mobilePanel">
+                        <button id="menuCloseInside" class="absolute top-4 right-4 p-2 rounded-md focus:outline-none ring-2 ring-white" aria-label="Cerrar menú">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+
+                        <ul class="flex flex-col gap-6 text-2xl">
+                            <li><a href="#services" class="block py-2" data-menu-link>Servicios</a></li>
+                            <li><a href="#plans" class="block py-2" data-menu-link>Membresias</a></li>
+                        </ul>
+
+                        <div class="mt-10 flex flex-col text-2xl">
+                            <div class="text-lime-300">Nuestras redes</div>
+                            <div class="flex gap-6 mt-5">
+                                <a href="" target="_blank">
+                                    <button aria-label="Instagram">
+                                        <i class="fa-brands fa-instagram text-3xl"></i>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section id="home" class="min-h-[100dvh] w-[80%] lg:w-full flex flex-col items-center py-24 lg:pb-0 pt-22 font-bebas">
+            <div class="flex flex-col items-center lg:items-start w-full mt-20 lg:mt-14 pt-8 lg:px-48 bg-black/30">
+                <div class="mb-8 text-[3rem] lg:text-[6.5rem] leading-none text-center lg:text-start text-gray-300 font-bold">Transforma tu<br><span class="bg-gradient-to-tl from-lime-700/90 to-lime-300/90 text-transparent bg-clip-text">cuerpo</span><br></div>
+            </div>
+            <div class="flex flex-col items-center lg:items-end w-full lg:px-48 bg-black/30">
+                <div class="mb-8 text-[3rem] lg:text-[6.5rem] leading-none text-center lg:text-end text-gray-300 font-bold">El limite esta en tu<br><span class="bg-gradient-to-tl from-lime-700/90 to-lime-300/90 text-transparent bg-clip-text">mente</span><br></div>
+            </div>
+            <div class="flex flex-col lg:flex-row lg:justify-center items-center gap-5 w-full pb-8 px-5 bg-black/30 font-roboto">
+                <button type="button" class="w-full lg:w-[20%] py-4 rounded bg-lime-600/80 text-xl text-gray-100 hover:bg-lime-600/60 duration-300">Probá 7 días gratis</button>
+                <button type="button" class="w-full lg:w-[20%] py-4 rounded border border-gray-100/30 text-xl text-gray-100 hover:border-lime-300/80 hover:text-lime-300/80 duration-300">Ver planes</button>
+            </div>
+        </section>
+
+        <section id="services" class="min-h-[100dvh] w-full flex flex-col items-center justify-center pb-16 pt-10 text-gray-100 bg-gray-950">
+            <h2 class="w-[80%] mt-32 mb-16 lg:mt-20 lg:mb-16 text-[3rem] lg:text-[4.5rem] leading-none text-center font-bold font-bebas">Nuestros <span class="bg-gradient-to-tl from-black to-lime-300/90 text-transparent bg-clip-text">Servicios</span></h2>
+
+            <div class="flex flex-col lg:flex-row items-center w-full lg:w-[80%] lg:gap-24">
+                <div class="relative flex flex-col justify-center items-center min-h-[300px] w-[80%] lg:max-w-[50%] mt-10 mb-8 p-8 rounded-lg border-2 border-lime-300/10 bg-gradient-to-tl from-black to-gray-500/20">
+                    <div class="absolute -top-14 p-6 rounded-full bg-gradient-to-tl from-black to-lime-300/90">
+                        <i class="fa-solid fa-dumbbell text-4xl"></i>
+                    </div>
+                    <h4 class="w-full text-center text-3xl lg:text-4xl font-bebas">Entrenamiento Personalizado</h4>
+                    <p class="mt-4 text-center lg:text-xl text-gray-300/90">
+                        Planes diseñados específicamente para tus objetivos y nivel de condición física.
+                    </p>
+                </div>
+                <div class="relative flex flex-col justify-center items-center min-h-[300px] w-[80%] lg:max-w-[50%] mt-10 mb-8 p-8 rounded-lg border-2 border-lime-300/10 bg-gradient-to-tl from-black to-gray-500/20">
+                    <div class="absolute -top-14 p-6 rounded-full bg-gradient-to-tl from-black to-lime-300/90">
+                        <i class="fa-solid fa-people-group text-4xl"></i>
+                    </div>
+                    <h4 class="w-full text-center text-3xl lg:text-4xl font-bebas">Clases grupales</h4>
+                    <p class="mt-4 text-center lg:text-xl text-gray-300/90">
+                        Yoga, spinning, crossfit y más. Encuentra tu comunidad fitness ideal.
+                    </p>
+                </div>
+                <div class="relative flex flex-col justify-center items-center min-h-[300px] w-[80%] lg:max-w-[50%] mt-10 mb-8 p-8 rounded-lg border-2 border-lime-300/10 bg-gradient-to-tl from-black to-gray-500/20">
+                    <div class="absolute -top-14 p-6 rounded-full bg-gradient-to-tl from-black to-lime-300/90">
+                        <i class="fa-regular fa-clock text-4xl"></i>
+                    </div>
+                    <h4 class="w-full text-center text-3xl lg:text-4xl font-bebas">Horario flexible</h4>
+                    <p class="mt-4 text-center lg:text-xl text-gray-300/90">
+                        Abierto de 5:00 AM a 11:00 PM. Entrena cuando mejor te convenga.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="plans" class="min-h-[100dvh] w-full flex flex-col items-center justify-center pb-16 pt-10 text-gray-100 bg-gray-950">
+            <h2 class="w-[80%] mt-32 mb-16 lg:mt-20 lg:mb-16 text-[3rem] lg:text-[4.5rem] leading-none text-center font-bold font-bebas"><span class="block bg-gradient-to-tl from-black to-lime-300/90 text-transparent bg-clip-text">Membresias</span></h2>
+
+            <div class="lg:w-[80%] lg:flex lg:gap-20">
+                <div class="flex flex-col items-center min-h-[300px] w-full mb-8 p-8 lg:mt-4 rounded-lg border-2 border-lime-300/10 bg-gradient-to-tl from-black to-gray-500/20">
+                    <h4 class="w-full text-2xl font-semibold font-bebas tracking-widest">Básico</h4>
+                    <div class="w-full text-[2.8rem] font-bold">$40<span class="text-gray-300/90 font-semibold text-xl">/mes</span></div>
+                    <p class="w-full mt-3 lg:min-h-[200px]">
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Acceso al gimnasio<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Vestuarios y duchas<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>App móvil
+                    </p>
+                    <div class="w-full mt-4">
+                        <button type="button" class="w-full px-5 py-2 rounded border border-gray-100/30 text-gray-100 font-semibold hover:border-lime-300/80 hover:text-lime-300/80 duration-300">Seleccionar</button>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center min-h-[300px] w-full mt-10 mb-8 p-8 lg:mt-0 rounded-lg text-white bg-gradient-to-tl from-black to-lime-300/60">
+                    <h4 class="w-full text-2xl font-semibold font-bebas tracking-widest">Pro</h4>
+                    <div class="w-full text-[2.8rem] font-bold">$50<span class="font-semibold text-xl">/mes</span></div>
+                    <p class="w-full mt-3 lg:min-h-[200px]">
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Todo en básico<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Clases grupales ilimitadas<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>2 sesiones con entrenador<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Plan nutricional
+                    </p>
+                    <div class="w-full mt-4">
+                        <button type="button" class="w-full px-5 py-2 rounded bg-lime-400/20 text-xl text-gray-100 hover:bg-lime-500/60 hover:shadow-lg hover:shadow-lime-500/20 duration-300">Seleccionar</button>
+                    </div>
+                </div>
+                <div class="flex flex-col items-center min-h-[300px] w-full mt-10 mb-8 p-8 lg:mt-4 rounded-lg border-2 border-lime-300/10 bg-gradient-to-tl from-black to-gray-500/20">
+                    <h4 class="w-full text-2xl text-yellow-500  font-semibold font-bebas tracking-widest">Elite</h4>
+                    <div class="w-full text-[2.8rem] font-bold">$80<span class="text-gray-300/90 font-semibold text-xl">/mes</span></div>
+                    <p class="w-full mt-3 lg:min-h-[200px]">
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Todo en Pro<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Entrenador personal<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Acceso a todas las sedes<br>
+                        <i class="fa-solid fa-circle-dot me-2 mb-3"></i>Invitado gratis
+                    </p>
+                    <div class="w-full mt-4">
+                        <button type="button" class="w-full px-5 py-2 rounded border border-gray-100/30 text-gray-100 font-semibold hover:border-lime-300/80 hover:text-lime-300/80 duration-300">Seleccionar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="min-h-[100dvh] w-full flex flex-col items-center justify-center pb-16 pt-10 text-gray-100 bg-gray-950">
+                <h3 class="w-[80%] mt-24 mb-8 text-[3rem] lg:text-[7.5rem] lg:text-center leading-none font-bold font-bebas"><span class="bg-gradient-to-tl from-lime-700/90 to-lime-300/90 text-transparent bg-clip-text">Comienza</span> tu transformacion <span class="bg-gradient-to-tl from-lime-700/90 to-lime-300/90 text-transparent bg-clip-text">hoy</span></h3>
+                <p class="w-[80%] text-2xl lg:text-3xl lg:text-center text-gray-400">Únete a cientos de personas que ya estan alcanzando sus metas</p>
+                <button type="button" class="w-[80%] lg:w-fit mt-12 py-4 lg:px-12 font-semibold rounded bg-lime-600/80 text-xl text-gray-100 hover:bg-lime-600/60 duration-300">Probá 7 días gratis</button>
+        </section>
+
+        <footer class="flex flex-col w-full px-5 lg:px-0 py-6 lg:py-12 bg-gray-900 text-gray-100">
+            <div class="flex flex-col lg:flex-row justify-around items-start">
+                <div class="mb-8">
+                    <a href="#home">
+                        <div class="flex items-end">
+                            <img src="assets/images/palestra-nobg.png" width="120" alt="Logo palestra fitness">
+                        </div>
+                    </a>
+                    <p class="ps-2 text-sm text-gray-300">Tu mejor version esta a un paso de distancia</p>
+                </div>
+    
+                <ul class="ps-2">
+                    <li class="mb-2 font-bold">Gimnasio</li>
+                    <li class="text-gray-300">Sobre Nosotros</li>
+                    <li class="text-gray-300">Nuestro Equipo</li>
+                    <li class="text-gray-300 mb-4">Instalaciones</li>
+                </ul>
+                <ul class="ps-2">
+                    <li class="mb-2 font-bold">Servicios</li>
+                    <li class="text-gray-300">Entrenamiento Personal</li>
+                    <li class="text-gray-300">Clases Grupales</li>
+                    <li class="text-gray-300 mb-4">Nutrición</li>
+                </ul>
+                <ul class="ps-2">
+                    <li class="mb-2 font-bold">Contacto</li>
+                    <li class="text-gray-300">info@apex.gym</li>
+                    <li class="text-gray-300">+1 (555) 123-4567</li>
+                    <li class="text-gray-300 mb-4">123 Fitness Ave, Ciudad</li>
+                </ul>
+            </div>
+
+            <div class="lg:flex lg:justify-center mt-8 ms-2 lg:text-center">
+                <div class="lg:w-[86%] border-t border-lime-300 py-4">
+                    <span class="text-sm">© 2024 Palestra fitness. Todos los derechos reservados.</span>
+                    <div class="flex lg:justify-center mt-4 text-xl lg:text-2xl gap-5">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="assets/js/menuResponsiveHandler.js"></script>
+        <script src="assets/js/scrollChangeHeader.js"></script>
+    </body>
+</html>
